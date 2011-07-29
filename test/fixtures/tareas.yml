@@ -1,0 +1,7 @@
+ir_al_curso:
+  nombre: 'Ir al curso'
+  detalles: 'Todos los sábados ir al curso de Rails'
+
+lavarme_los_dientes:
+  nombre: 'Lavarme los dientes'
+  detalles: 'Todos los días lavarme los dientes 3 veces'
