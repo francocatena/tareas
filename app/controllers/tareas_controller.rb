@@ -44,7 +44,7 @@ class TareasController < ApplicationController
 
     respond_to do |format|
       if @tarea.save
-        format.html { redirect_to(@tarea, :notice => 'Tarea was successfully created.') }
+        format.html { redirect_to(@tarea, :notice => 'Tarea creada.') }
         format.xml  { render :xml => @tarea, :status => :created, :location => @tarea }
       else
         format.html { render :action => "new" }
@@ -60,7 +60,7 @@ class TareasController < ApplicationController
 
     respond_to do |format|
       if @tarea.update_attributes(params[:tarea])
-        format.html { redirect_to(@tarea, :notice => 'Tarea was successfully updated.') }
+        format.html { redirect_to(@tarea, :notice => 'Tarea actualizada.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

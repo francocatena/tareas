@@ -4,18 +4,12 @@
   <tr>
     <th>Nombre</th>
     <th>Detalles</th>
-    <th></th>
-    <th></th>
-    <th></th>
   </tr>
 
 <% @tareas.each do |tarea| %>
   <tr>
-    <td><%= tarea.nombre %></td>
+    <td><%= link_to tarea.nombre, tarea %></td>
     <td><%= truncate tarea.detalles, :length => 25 %></td>
-    <td><%= link_to 'Ver', tarea %></td>
-    <td><%= link_to 'Editar', edit_tarea_path(tarea) %></td>
-    <td><%= link_to 'Eliminar', tarea, :confirm => '¿Está seguro?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

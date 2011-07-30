@@ -1,14 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Nombre:</b>
-  <%= @tarea.nombre %>
-</p>
-<p>
-  <b>Detalles:</b>
-  <%= @tarea.detalles %>
-</p>
+<h1><%= @tarea.nombre %></h1>
 
+<p><%= @tarea.detalles %></p>
 
 <%= link_to 'Editar', edit_tarea_path(@tarea) %> |
+<%= link_to 'Eliminar', @tarea, :confirm => '¿Seguro?', :method => :delete %> |
 <%= link_to 'Volver', tareas_path %>
