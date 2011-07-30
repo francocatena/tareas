@@ -2,7 +2,7 @@ class TareasController < ApplicationController
   # GET /tareas
   # GET /tareas.xml
   def index
-    @tareas = Tarea.all
+    @tareas = Tarea.order('nombre').all
 
     respond_to do |format|
       format.html # index.html.erb
