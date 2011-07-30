@@ -20,8 +20,4 @@ class TareaTest < ActiveSupport::TestCase
     assert_equal 1, @tarea.errors.size
     assert_equal 'no debe estar en blanco', @tarea.errors[:detalles][0]
   end
-
-#  test 'debe tener una fecha valida' do
-#    pending 'Implementar'
-#  end
 end
