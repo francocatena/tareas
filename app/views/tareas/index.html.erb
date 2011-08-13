@@ -4,12 +4,14 @@
   <tr>
     <th>Nombre</th>
     <th>Detalles</th>
+    <th>Fecha</th>
   </tr>
 
 <% @tareas.each do |tarea| %>
   <tr>
     <td><%= link_to tarea.nombre, tarea %></td>
     <td><%= truncate tarea.detalles, :length => 25 %></td>
+    <td><%= tarea.fecha %></td>
   </tr>
 <% end %>
 </table>
@@ -17,3 +19,6 @@
 <br />
 
 <%= link_to 'Nueva tarea', new_tarea_path %>
+<%= will_paginate @tareas,
+  :previous_label => '&laquo; Anterior',
+  :next_label => 'Siguiente &raquo;' %>

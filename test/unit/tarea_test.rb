@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 require 'test_helper'
 
 class TareaTest < ActiveSupport::TestCase
@@ -19,5 +21,19 @@ class TareaTest < ActiveSupport::TestCase
     assert @tarea.invalid?
     assert_equal 1, @tarea.errors.size
     assert_equal 'no debe estar en blanco', @tarea.errors[:detalles][0]
+  end
+
+  test 'la fecha debe estar bien formada' do
+    @tarea.fecha = '13/13/13'
+    assert @tarea.invalid?
+    assert_equal 1, @tarea.errors.size
+    assert_equal 'está mal formada', @tarea.errors[:fecha][0]
+  end
+  
+  test 'la fecha debe ser para hoy o el futuro' do
+    @tarea.fecha = Date.yesterday
+    assert @tarea.invalid?
+    assert_equal 1, @tarea.errors.size
+    assert_equal 'debe ser para hoy o el futuro', @tarea.errors[:fecha][0]
   end
 end

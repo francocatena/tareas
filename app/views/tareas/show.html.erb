@@ -3,6 +3,7 @@
 <h1><%= @tarea.nombre %></h1>
 
 <p><%= @tarea.detalles %></p>
+<p><%= @tarea.fecha %></p>
 
 <%= link_to 'Editar', edit_tarea_path(@tarea) %> |
 <%= link_to 'Eliminar', @tarea, :confirm => '¿Seguro?', :method => :delete %> |

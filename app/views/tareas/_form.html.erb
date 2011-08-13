@@ -19,6 +19,10 @@
     <%= f.label :detalles %><br />
     <%= f.text_area :detalles, :rows => 5 %>
   </div>
+  <div class="field">
+    <%= f.label :fecha %><br />
+    <%= f.date_select :fecha %>
+  </div>
   <div class="actions">
     <%= f.submit 'Guardar' %>
   </div>
