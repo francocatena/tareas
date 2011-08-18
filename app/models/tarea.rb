@@ -6,8 +6,11 @@ class Tarea < ActiveRecord::Base
   }
   validates :fecha, :timeliness => {
     :type => :date,
-    :on_or_after => lambda { Date.today },
-    :invalid_date_message => 'está mal formada',
+    :invalid_date_message => 'está mal formada'
+  }
+  validates :fecha, :on => :create, :timeliness => {
+    :type => :date,
+    :on_or_after => :today,
     :on_or_after_message => 'debe ser para hoy o el futuro'
   }
 end

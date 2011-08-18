@@ -31,9 +31,12 @@ class TareaTest < ActiveSupport::TestCase
   end
   
   test 'la fecha debe ser para hoy o el futuro' do
-    @tarea.fecha = Date.yesterday
-    assert @tarea.invalid?
-    assert_equal 1, @tarea.errors.size
-    assert_equal 'debe ser para hoy o el futuro', @tarea.errors[:fecha][0]
+    # Solamente se evalúa para tareas nuevas
+    tarea = Tarea.new(
+      @tarea.attributes.merge(:id => nil, :fecha => Date.yesterday)
+    )
+    assert tarea.invalid?
+    assert_equal 1, tarea.errors.size
+    assert_equal 'debe ser para hoy o el futuro', tarea.errors[:fecha][0]
   end
 end
