@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @responsable.nombre %></h1>
+
+<p><%= mail_to @responsable.correo %><p>
+
+
+<%= link_to 'Editar', edit_responsable_path(@responsable) %> |
+<%= link_to 'Eliminar', @responsable, :confirm => '¿Seguro?', :method => :delete %> |
+<%= link_to 'Volver', responsables_path %>

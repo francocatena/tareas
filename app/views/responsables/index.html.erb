@@ -1,0 +1,19 @@
+<h1>Listado de responsables</h1>
+
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th>Correo</th>
+  </tr>
+
+<% @responsables.each do |responsable| %>
+  <tr>
+    <td><%= link_to responsable.nombre, responsable %></td>
+    <td><%= mail_to responsable.correo %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Nuevo Responsable', new_responsable_path %>

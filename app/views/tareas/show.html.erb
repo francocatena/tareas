@@ -5,6 +5,10 @@
 <p><%= @tarea.detalles %></p>
 <p><%= @tarea.fecha %></p>
 
+<% if @tarea.responsable %>
+  <p>Esta tarea la debe hacer <strong><%= @tarea.responsable %></strong></p>
+<% end %>
+
 <%= link_to 'Editar', edit_tarea_path(@tarea) %> |
 <%= link_to 'Eliminar', @tarea, :confirm => '¿Seguro?', :method => :delete %> |
 <%= link_to 'Volver', tareas_path %>

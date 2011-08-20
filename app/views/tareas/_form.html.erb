@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :nombre %><br />
-    <%= f.text_field :nombre %>
+    <%= f.text_field :nombre, :autofocus => true %>
   </div>
   <div class="field">
     <%= f.label :detalles %><br />
@@ -22,6 +22,10 @@
   <div class="field">
     <%= f.label :fecha %><br />
     <%= f.date_select :fecha %>
+  </div>
+  <div class="field">
+    <%= f.label :responsable_id, 'Responsable' %><br />
+    <%= f.select :responsable_id, responsables_array_for_select, :include_blank => true %>
   </div>
   <div class="actions">
     <%= f.submit 'Guardar' %>

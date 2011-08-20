@@ -1,6 +1,7 @@
 # encoding: UTF-8
 
 class Tarea < ActiveRecord::Base
+  # Restricciones
   validates :nombre, :detalles, :presence =>  {
     :message => 'no debe estar en blanco'
   }
@@ -13,4 +14,7 @@ class Tarea < ActiveRecord::Base
     :on_or_after => :today,
     :on_or_after_message => 'debe ser para hoy o el futuro'
   }
+
+  # Relaciones
+  belongs_to :responsable
 end

@@ -1,4 +1,6 @@
 Tareas::Application.routes.draw do
+  resources :responsables
+
   resources :tareas
 
   # The priority is based upon order of creation:
