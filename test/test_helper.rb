@@ -10,4 +10,13 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+  def identificarse(correo = responsables(:obi).correo, clave = '123')
+    temp_controller, @controller = @controller, SesionesController.new
+
+    post :create, { :correo => correo, :clave => clave }, {}
+    assert_redirected_to :controller => :tareas, :action => :index
+    assert_not_nil session[:responsable_id]
+
+    @controller = temp_controller
+  end
 end
