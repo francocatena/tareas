@@ -7,8 +7,7 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
-
+<%= render 'comun/menu' if responsable_actual %>
 <%= yield %>
-
 </body>
 </html>

@@ -30,4 +30,13 @@ class ResponsableTest < ActiveSupport::TestCase
     assert_equal 1, @responsable.errors.size
     assert_equal 'está mal formado', @responsable.errors[:correo][0]
   end
+
+  test 'el salt y la clave cifrada se asignan cuando creamos un responsable' do
+    @responsable = Responsable.create(
+      nombre: 'Franco', correo: 'p@t.com', clave: '123'
+    )
+    assert @responsable.salt.present?
+    assert @responsable.clave_cifrada.present?
+    assert @responsable.clave_valida?('123')
+  end
 end

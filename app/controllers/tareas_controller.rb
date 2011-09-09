@@ -1,4 +1,6 @@
 class TareasController < ApplicationController
+  before_filter :requerir_responsable
+
   # GET /tareas
   # GET /tareas.xml
   def index

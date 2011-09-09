@@ -1,4 +1,6 @@
 class ResponsablesController < ApplicationController
+  before_filter :requerir_responsable
+
   # GET /responsables
   # GET /responsables.xml
   def index

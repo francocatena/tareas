@@ -1,0 +1,14 @@
+<p id="notice"><%= flash.notice %></p>
+<%= form_tag nueva_sesion_path do %>
+  <div class="field">
+    <%= label_tag 'correo' %><br />
+    <%= email_field_tag :correo, params[:correo] %>
+  </div>
+  <div class="field">
+    <%= label_tag 'clave' %><br />
+    <%= password_field_tag :clave %>
+  </div>
+  <div class="actions">
+    <%= submit_tag 'Iniciar' %>
+  </div>
+<% end %>
