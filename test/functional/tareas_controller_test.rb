@@ -24,7 +24,7 @@ class TareasControllerTest < ActionController::TestCase
       post :create, :tarea => {
         :nombre => 'Ir a la conferencia',
         :detalles => 'Es al lado del Ángel Bustelo',
-        :fecha => '2011-09-17'
+        :fecha => Date.tomorrow.to_s(:db)
       }
     end
 
