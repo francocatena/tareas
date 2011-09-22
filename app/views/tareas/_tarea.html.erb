@@ -1,0 +1,8 @@
+<tr <%= raw 'class="completa"' if tarea.completa %>>
+  <td><%= link_to tarea.nombre, tarea %></td>
+  <td><%= truncate tarea.detalles, :length => 25 %></td>
+  <td><%= tarea.fecha %></td>
+  <td><%= tarea.responsable || '-' %></td>
+  <td><%= tarea.completa ? 'Si' : 'No' %></td>
+  <td><%= link_to('Marcar como completa', completar_tarea_path(tarea), :class => 'completar_tarea', :remote => true, 'data-type' => 'html') unless tarea.completa %></td>
+</tr>

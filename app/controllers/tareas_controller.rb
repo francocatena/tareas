@@ -1,5 +1,9 @@
+# encoding: UTF-8
+
 class TareasController < ApplicationController
   before_filter :requerir_responsable
+
+  layout proc { |controller| controller.request.xhr? ? false : 'application' }
 
   # GET /tareas
   # GET /tareas.xml
@@ -82,6 +86,23 @@ class TareasController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(tareas_url) }
       format.xml  { head :ok }
+    end
+  end
+  
+  # GET /tareas/1/completar
+  # GET /tareas/1/completar.xml
+  def completar
+    @tarea = Tarea.find(params[:id])
+    @tarea.update_attribute :completa, true
+
+
+    if request.xhr?
+      render :partial => 'tarea', :locals => {:tarea => @tarea}
+    else
+      respond_to do |format|
+        format.html { redirect_to(tareas_url) }
+        format.xml  { head :ok }
+      end
     end
   end
 end

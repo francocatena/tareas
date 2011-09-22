@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110827150057) do
+ActiveRecord::Schema.define(:version => 20110922164610) do
 
   create_table "responsables", :force => true do |t|
     t.string   "nombre"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(:version => 20110827150057) do
     t.text     "detalles"
     t.date     "fecha"
     t.integer  "responsable_id"
+    t.boolean  "completa",       :default => false, :null => false
   end
 
   add_index "tareas", ["fecha"], :name => "index_tareas_on_fecha"

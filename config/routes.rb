@@ -1,7 +1,9 @@
 Tareas::Application.routes.draw do
   resources :responsables
 
-  resources :tareas
+  resources :tareas do
+    get :completar, :on => :member
+  end
 
   match 'sesiones' => 'sesiones#new', as: 'nueva_sesion', via: :get
   match 'sesiones' => 'sesiones#create', via: :post

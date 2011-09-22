@@ -24,7 +24,8 @@ class TareasControllerTest < ActionController::TestCase
       post :create, :tarea => {
         :nombre => 'Ir a la conferencia',
         :detalles => 'Es al lado del Ángel Bustelo',
-        :fecha => Date.tomorrow.to_s(:db)
+        :fecha => Date.tomorrow.to_s(:db),
+        :completa => '0'
       }
     end
 
@@ -55,5 +56,12 @@ class TareasControllerTest < ActionController::TestCase
     end
 
     assert_redirected_to tareas_path
+  end
+
+  test 'deberia marcar una tarea como completa' do
+    xhr :get, :completar, :id => @tarea.to_param
+    assert_response :success
+    assert_template 'tareas/_tarea'
+    assert @tarea.reload.completa
   end
 end

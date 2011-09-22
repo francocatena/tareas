@@ -2,8 +2,10 @@ ir_al_curso:
   nombre: 'Ir al curso'
   detalles: 'Todos los sábados ir al curso de Rails'
   fecha: <%= Date.tomorrow.to_s(:db) %>
+  completa: false
 
 lavarme_los_dientes:
   nombre: 'Lavarme los dientes'
   detalles: 'Todos los días lavarme los dientes 3 veces'
   fecha: <%= Date.tomorrow.to_s(:db) %>
+  completa: true

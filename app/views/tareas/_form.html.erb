@@ -27,6 +27,10 @@
     <%= f.label :responsable_id, 'Responsable' %><br />
     <%= f.select :responsable_id, responsables_array_for_select, :include_blank => true %>
   </div>
+  <div class="field">
+    <%= f.label :completa %><br />
+    <%= f.check_box :completa %>
+  </div>
   <div class="actions">
     <%= f.submit 'Guardar' %>
   </div>

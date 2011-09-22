@@ -1,13 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<h1><%= @tarea.nombre %></h1>
+<h1 <%= raw 'class="completa"' if @tarea.completa %>><%= @tarea.nombre %></h1>
 
 <p><%= @tarea.detalles %></p>
 <p><%= @tarea.fecha %></p>
+<p><%= @tarea.completa ? 'Completa' : 'Pendiente' %></p>
 
-<% if @tarea.responsable %>
-  <p>Esta tarea la debe hacer <strong><%= @tarea.responsable %></strong></p>
-<% end %>
+<%= mostrar_responsable(@tarea) if @tarea.responsable %>
 
 <%= link_to 'Editar', edit_tarea_path(@tarea) %> |
 <%= link_to 'Eliminar', @tarea, :confirm => '¿Seguro?', :method => :delete %> |
