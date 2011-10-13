@@ -3,9 +3,10 @@ ir_al_curso:
   detalles: 'Todos los sábados ir al curso de Rails'
   fecha: <%= Date.tomorrow.to_s(:db) %>
   completa: false
+  responsable: franco
 
 lavarme_los_dientes:
   nombre: 'Lavarme los dientes'
   detalles: 'Todos los días lavarme los dientes 3 veces'
-  fecha: <%= Date.tomorrow.to_s(:db) %>
+  fecha: <%= 5.days.from_now.to_date.to_s(:db) %>
   completa: true

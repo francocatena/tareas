@@ -1,0 +1,6 @@
+<h1>Hola <%= @responsable.nombre %>,</h1>
+
+<p>
+  Queríamos recordarte que la tarea "<%= @tarea %>" vence el
+  <strong><%= l(@tarea.fecha, format: :long) %></strong>
+</p>

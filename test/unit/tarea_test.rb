@@ -39,4 +39,12 @@ class TareaTest < ActiveSupport::TestCase
     assert_equal 1, tarea.errors.size
     assert_equal 'debe ser para hoy o el futuro', tarea.errors[:fecha][0]
   end
+
+  test 'se deben notificar las tareas por vencer' do
+    ActionMailer::Base.delivery_method = :test
+
+    assert_difference 'ActionMailer::Base.deliveries.size' do
+      Tarea.recordar_vencimientos
+    end
+  end
 end
