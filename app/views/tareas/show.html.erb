@@ -8,6 +8,8 @@
 
 <%= mostrar_responsable(@tarea) if @tarea.responsable %>
 
+<br />
+
 <%= link_to 'Editar', edit_tarea_path(@tarea) %> |
 <%= link_to 'Eliminar', @tarea, :confirm => '¿Seguro?', :method => :delete %> |
 <%= link_to 'Volver', tareas_path %>

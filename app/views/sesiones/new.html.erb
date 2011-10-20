@@ -2,7 +2,7 @@
 <%= form_tag nueva_sesion_path do %>
   <div class="field">
     <%= label_tag 'correo' %><br />
-    <%= email_field_tag :correo, params[:correo] %>
+    <%= email_field_tag :correo, params[:correo], autofocus: true %>
   </div>
   <div class="field">
     <%= label_tag 'clave' %><br />
