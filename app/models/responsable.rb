@@ -2,6 +2,11 @@
 require 'digest/sha2'
 
 class Responsable < ActiveRecord::Base
+  # Ámbitos
+  scope :con_nombre, lambda { |nombre|
+    where('LOWER(nombre) LIKE ?', "#{nombre}%".downcase)
+  }
+
   # Ganchos
   before_save :asignar_clave_cifrada
 

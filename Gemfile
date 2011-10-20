@@ -16,6 +16,6 @@ group :assets do
 end
 
 group :test do
-  gem 'minitest' # Dependencia de turn
+  gem 'minitest', require: false # Dependencia de turn
   gem 'turn'
 end

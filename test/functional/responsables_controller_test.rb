@@ -56,4 +56,10 @@ class ResponsablesControllerTest < ActionController::TestCase
 
     assert_redirected_to responsables_path
   end
+
+  test 'deberia devolver lista de responsables' do
+    xhr :get, :autocompletar, :format => :js, :term => 'fr'
+    assert_response :success
+    assert_equal Responsable.con_nombre('fr').map(&:to_s).to_s, @response.body
+  end
 end

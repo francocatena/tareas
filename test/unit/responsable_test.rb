@@ -39,4 +39,15 @@ class ResponsableTest < ActiveSupport::TestCase
     assert @responsable.clave_cifrada.present?
     assert @responsable.clave_valida?('123')
   end
+
+  test 'buscar por nombre' do
+    responsables = Responsable.con_nombre 'fr'
+
+    assert_equal 1, responsables.size
+    assert_equal 'Franco', responsables.first.nombre
+
+    responsables = Responsable.con_nombre 'xx'
+
+    assert_equal 0, responsables.size
+  end
 end

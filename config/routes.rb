@@ -1,8 +1,10 @@
 Tareas::Application.routes.draw do
-  resources :responsables
+  resources :responsables do
+    get :autocompletar, on: :collection
+  end
 
   resources :tareas do
-    get :completar, :on => :member
+    get :completar, on: :member
   end
 
   match 'sesiones' => 'sesiones#new', as: 'nueva_sesion', via: :get

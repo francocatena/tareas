@@ -1,6 +1,11 @@
 # encoding: UTF-8
 
 class Tarea < ActiveRecord::Base
+  # Atributos no persistentes
+  attr_accessor :auto_responsable
+
+  before_validation :asignar_responsable
+
   # Restricciones
   validates :nombre, :detalles, :presence =>  {
     :message => 'no debe estar en blanco'
@@ -20,6 +25,12 @@ class Tarea < ActiveRecord::Base
 
   def to_s
     self.nombre
+  end
+
+  def asignar_responsable
+    if self.auto_responsable.present?
+      self.responsable = Responsable.find_by_nombre(self.auto_responsable)
+    end
   end
 
   def self.recordar_vencimientos
